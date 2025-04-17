@@ -1,0 +1,67 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Wing",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "(?<=\\b(function|on|emit|if) )([a-zA-Z0-9-_]+)"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "(?<=< )([a-zA-Z0-9-_]+)"
+				},
+				{
+					"name": "storage.type",
+					"match": "\\b(function)"
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(if|else|on|foreach|do|end)( +do\\b|)"
+				},
+				{
+					"name": "variable.language",
+					"match": "^ *(#include|#require)"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "(?<=\\b|^(#include|#require) )(<([a-zA-Z0-9-_]+)>|wing:([a-zA-Z0-9-_]+))"
+				},
+				{
+					"name": "comment.line.double-dash",
+					"match": "--(.*)$"
+				},
+				{
+					"name": "comment.line.number-sign",
+					"match": "^( +)#!(.*)"
+				},
+				{
+					"name": "variable.other",
+					"match": "(?<= |^)\\$([a-zA-Z0-9-_]+)(!|)(?=\\b|$)"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "^ *([a-zA-Z0-9-_]+)(?<!if|else|end|function|#include|#require)( |$)"
+				},
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\\\$"
+				},
+				{
+					"name": "storage.modifier",
+					"match": "^ *(\\?!|\\?\\?|\\?)"
+				}
+			]
+		}
+	},
+	"scopeName": "source.wing"
+}
